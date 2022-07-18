@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.neuralink.interviewing";
+
+// A single image which might be grayscale, or color.
+//
+message PbfImage {
+    bool color = 1;
+    bytes data = 2;
+    int32 width = 3;
+    int32 height = 4;
+}
+
+// A request for your custom ImageService endpoint.  Feel free to
+// add other messages and fields, but at least one field must be
+// an image.
+
+
+service PbfImageService {
+ 	rpc SendImage(PbfImage) returns (PbfImage);
+
+}
+
